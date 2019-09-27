@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF9800"
+    android:background="#EBFF9D0E"
     tools:context=".MainActivity">
 
     //info https://developer.android.com/training/improving-layouts/reusing-layouts
@@ -58,19 +58,33 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <include android:id="@+id/box1"
+            <include
+                android:id="@+id/box1"
                 layout="@layout/boxlayout" />
 
-            <include android:id="@+id/box2"
+            <include
+                android:id="@+id/box5"
                 layout="@layout/boxlayout" />
 
-            <include android:id="@+id/box3"
+            <include
+                android:id="@+id/box3"
                 layout="@layout/boxlayout" />
 
-            <include android:id="@+id/box4"
+            <include
+                android:id="@+id/box2"
                 layout="@layout/boxlayout" />
 
-            <include android:id="@+id/box5"
+            <include
+                android:id="@+id/box4"
+                layout="@layout/boxlayout" />
+
+
+            <include
+                android:id="@+id/box6"
+                layout="@layout/boxlayout" />
+
+            <include
+                android:id="@+id/box7"
                 layout="@layout/boxlayout" />
 
         </LinearLayout>

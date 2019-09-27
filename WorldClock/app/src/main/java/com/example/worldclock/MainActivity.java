@@ -12,6 +12,7 @@ import android.widget.Switch;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -21,8 +22,15 @@ import java.util.TimeZone;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+
+
+//resolve error
+//https://stackoverflow.com/questions/28353835/namespace-app-not-bound-in-android-studio-with-external-lib-from-maven
+
+//images from: https://www.flaticon.com/
 
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     TextView city3Name;
     TextView city4Name;
     TextView city5Name;
+    TextView city6Name;
+    TextView city7Name;
 
     //textViews for times
     TextView timeZone1;
@@ -44,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     TextView timeZone3;
     TextView timeZone4;
     TextView timeZone5;
+    TextView timeZone6;
+    TextView timeZone7;
 
     //imageViews for Cities
     ImageView cityImage1;
@@ -51,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView cityImage3;
     ImageView cityImage4;
     ImageView cityImage5;
+    ImageView cityImage6;
+    ImageView cityImage7;
 
     //Declare ConstraintLayout
     public ConstraintLayout box1;
@@ -58,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
     public ConstraintLayout box3;
     public ConstraintLayout box4;
     public ConstraintLayout box5;
+    public ConstraintLayout box6;
+    public ConstraintLayout box7;
 
     public DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
     public SimpleDateFormat sdfSyd = new SimpleDateFormat("hh:mm a");
@@ -108,11 +124,27 @@ public class MainActivity extends AppCompatActivity {
         cityImage5 = box5.findViewById(R.id.image);
         cityImage5.setImageResource(R.drawable.newyork);
 
+        //city 6 linkage
+        box6 = findViewById(R.id.box6);
+        city6Name = box6.findViewById(R.id.city);
+        city6Name.setText("London");
+        timeZone6 = box6.findViewById(R.id.clock);
+        cityImage6 = box6.findViewById(R.id.image);
+        cityImage6.setImageResource(R.drawable.london);
+
+        //city 7 linkage
+        box7 = findViewById(R.id.box7);
+        city7Name = box7.findViewById(R.id.city);
+        city7Name.setText("San Francisco");
+        timeZone7 = box7.findViewById(R.id.clock);
+        cityImage7 = box7.findViewById(R.id.image);
+        cityImage7.setImageResource(R.drawable.sanfrancisco);
+
         timeZones();
 
     }
 
-    public void timeZones(){
+    public void timeZones() {
         final Switch timeSwitch = findViewById(R.id.switch2);
         final Handler timeHandler = new Handler(getMainLooper());
 
@@ -126,22 +158,19 @@ public class MainActivity extends AppCompatActivity {
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                         if (isChecked) {
-                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
                             testing = 1;
                         } else {
-                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
                             testing = 0;
                         }
                     }
                 });
 
-                if (testing == 1){
-                    formatter = DateTimeFormatter.ofPattern("HH:mm");
-                    sdfSyd = new SimpleDateFormat("HH:mm");
-                }
-                else {
-                    formatter = DateTimeFormatter.ofPattern("hh:mm a");
-                    sdfSyd = new SimpleDateFormat("hh:mm a");
+                if (testing == 1) {
+                    formatter = DateTimeFormatter.ofPattern("EEE HH:mm");
+                    sdfSyd = new SimpleDateFormat("EEE HH:mm");
+                } else {
+                    formatter = DateTimeFormatter.ofPattern("EEE hh:mm a");
+                    sdfSyd = new SimpleDateFormat("EEE hh:mm a");
                 }
 
                 //phone time
@@ -149,35 +178,76 @@ public class MainActivity extends AppCompatActivity {
                 String dateString = sdfSyd.format(curTime);
                 timeZone1.setText(dateString);
 
+                //time zone list:
+                //https://garygregory.wordpress.com/2013/06/18/what-are-the-java-timezone-ids/
+
                 //time zone for auckland
                 ZoneId zoneIdAuckland = ZoneId.of("Pacific/Auckland");
-                LocalTime localTimeAuckland=LocalTime.now(zoneIdAuckland);
-                String formattedTimeAuckland=localTimeAuckland.format(formatter);
+                LocalDateTime localDateTimeAuckland = LocalDateTime.now(zoneIdAuckland);
+                String formattedTimeAuckland = localDateTimeAuckland.format(formatter);
                 timeZone2.setText(formattedTimeAuckland);
 
                 //time zone for tokyo
                 ZoneId zoneId = ZoneId.of("Asia/Tokyo");
-                LocalTime localTime=LocalTime.now(zoneId);
-                String formattedTime=localTime.format(formatter);
+                LocalDateTime localDateTime = LocalDateTime.now(zoneId);
+                String formattedTime = localDateTime.format(formatter);
                 timeZone3.setText(formattedTime);
 
                 //time zone for beijing
                 ZoneId zoneIdBeijing = ZoneId.of("Asia/Shanghai");
-                LocalTime localTimeBeijing=LocalTime.now(zoneIdBeijing);
-                String formattedTimeBeijing=localTimeBeijing.format(formatter);
+                LocalDateTime localDateTimeBeijing = LocalDateTime.now(zoneIdBeijing);
+                String formattedTimeBeijing = localDateTimeBeijing.format(formatter);
                 timeZone4.setText(formattedTimeBeijing);
 
                 //time zone for new york
                 ZoneId zoneIdNewYork = ZoneId.of("America/New_York");
-                LocalTime localTimeNewYork=LocalTime.now(zoneIdNewYork);
-                String formattedTimeNewYork=localTimeNewYork.format(formatter);
+                LocalDateTime localDateTimeNewYork = LocalDateTime.now(zoneIdNewYork);
+                String formattedTimeNewYork = localDateTimeNewYork.format(formatter);
                 timeZone5.setText(formattedTimeNewYork);
 
+                //time zone for london
+                ZoneId zoneIdLondon = ZoneId.of("Europe/London");
+                LocalDateTime localDateTimeLondon = LocalDateTime.now(zoneIdLondon);
+                String formattedTimeLondon = localDateTimeLondon.format(formatter);
+                timeZone6.setText(formattedTimeLondon);
+
+                //time zone for san francisco
+                //note time zone in Los Angeles is the same as san francisco
+                ZoneId zoneIdSF = ZoneId.of("America/Los_Angeles");
+                LocalDateTime localDateTimeSF = LocalDateTime.now(zoneIdSF);
+                String formattedTimeSF = localDateTimeSF.format(formatter);
+                timeZone7.setText(formattedTimeSF);
+
             }
-        }, 10);
+        }, 5);
 
 
     }
 
-    }
+}
+
+//app made by Raymond z5161354
+//other Resources Used
+//https://www.tutlane.com/tutorial/android/android-switch-on-off-button-with-examples
+//https://stackoverflow.com/questions/14053079/simpledateformat-returns-24-hour-date-how-to-get-12-hour-date
+//https://dzone.com/articles/getting-current-date-time-in-java
+//https://stackoverflow.com/questions/46101925/as-2-3-3-gradle-3-3-java-1-8-cant-resolve-import-for-java-time-format-datetim
+//https://stackoverflow.com/questions/29952404/showing-current-time-in-android-and-updating-it
+//https://stackoverflow.com/questions/17807777/simpledateformatstring-template-locale-locale-with-for-example-locale-us-for/17808060
+//https://stackoverflow.com/questions/35771531/call-requires-api-level-23-current-min-is-14-android-app-activityrequestperm
+//https://abhiandroid.com/androidstudio/change-api-sdk-level-android-studio.html
+//https://stackoverflow.com/questions/11664303/accessing-a-variable-outside-of-an-if-statement
+//https://stackoverflow.com/questions/14425826/variable-is-accessed-within-inner-class-needs-to-be-declared-final
+//https://alvinalexander.com/source-code/android/android-checkbox-listener-setoncheckedchangelisteneroncheckedchangelistener-exam
+//file:///C:/Users/Raymond/Downloads/Homework_Task_1.pdf
+//https://stackoverflow.com/questions/5121976/is-there-a-date-format-to-display-the-day-of-the-week-in-java
+//https://stackoverflow.com/questions/23069370/format-a-date-using-the-new-date-time-api
+//https://medium.com/mindorks/11-android-studio-shortcuts-every-android-developer-must-know-a153e736e611
+
+
+
+
+
+
+
 

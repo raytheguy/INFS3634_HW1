@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">WorldClock</string>
     <string name="world_location">World Location</string>
+    <string name="default_time">Default Time</string>
+    <string name="city">Placeholder City</string>
+    <string name="placeholder_image">Placeholder Image</string>
 </resources>

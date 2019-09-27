@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF9800"
+    tools:context=".MainActivity">
+
+    //info https://developer.android.com/training/improving-layouts/reusing-layouts
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="?android:dividerHorizontal"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="59dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="168dp">
+
+                <TextView
+                    android:id="@+id/titleView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="175dp"
+                    android:layout_marginTop="93dp"
+                    android:layout_marginEnd="177dp"
+                    android:layout_marginBottom="70dp"
+                    android:text="World Clock - 世界時計"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <Switch
+                    android:id="@+id/switch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="164dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="165dp"
+                    android:text="24hr"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titleView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <include android:id="@+id/box1"
+                layout="@layout/boxlayout" />
+
+            <include android:id="@+id/box2"
+                layout="@layout/boxlayout" />
+
+            <include android:id="@+id/box3"
+                layout="@layout/boxlayout" />
+
+            <include android:id="@+id/box4"
+                layout="@layout/boxlayout" />
+
+            <include android:id="@+id/box5"
+                layout="@layout/boxlayout" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

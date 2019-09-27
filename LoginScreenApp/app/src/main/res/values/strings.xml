@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LoginScreenApp</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="text_will_change_here_when_logging_in">Text will change here when logging in</string>
+</resources>

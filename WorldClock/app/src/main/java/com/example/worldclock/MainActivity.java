@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     //declare int values that  can be changed
     public int testing;
+    //default is night mode off
     public int nightActivate = 0;
     //Button or Switch for time type (i.e. 12hr or 24hr)
     Button timeTypeButton;
@@ -152,9 +154,32 @@ public class MainActivity extends AppCompatActivity {
         //main background
         mainBack = findViewById(R.id.mainBackGround);
 
+        //set night activation to no when onCreate
+        //warning does not work
+        nightActivate = 0;
+
         //invoke timeZones method
         timeZones();
 
+    }
+
+    //how to reference: https://medium.com/@doyouseeitmyway/save-and-restore-instance-state-made-easy-cf6f175f54b0
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("NightModeKey", testing);
+        outState.putInt("24hrKey", nightActivate);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        testing = savedInstanceState.getInt("NightModelKey");
+        nightActivate = savedInstanceState.getInt("24hrKey");
+        System.out.println("Save successful if the number is correct for night mode " + nightActivate);
+        System.out.println("Save successful if the number is correct time zone preference " + testing);
     }
 
     public void timeZones() {
@@ -182,15 +207,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                //if testing (which is the time format toggle) is on then display 24/hr time
                 if (testing == 1) {
+                    System.out.println("Testing = 1 invoked");
                     formatter = DateTimeFormatter.ofPattern("EEE HH:mm");
                     sdfSyd = new SimpleDateFormat("EEE HH:mm");
-                } else {
+                } else if (testing == 0){
+                    System.out.println("Testing = 0 invoked");
                     formatter = DateTimeFormatter.ofPattern("EEE hh:mm a");
                     sdfSyd = new SimpleDateFormat("EEE hh:mm a");
                 }
-
-                nightModeActivation();
 
                 //phone time
                 final long curTime = System.currentTimeMillis();
@@ -237,34 +263,52 @@ public class MainActivity extends AppCompatActivity {
                 String formattedTimeSF = localDateTimeSF.format(formatter);
                 timeZone7.setText(formattedTimeSF);
 
+                //night mode checker
+                nightModeActivation();
+
             }
         }, 5);
 
     }
 
     //this method's purpose is to have an onClick listener to see if night mode is activated
+    //this keeps running until app is closed
     public void nightModeActivation() {
+
+//        System.out.println("Night Mode method has been invoked, with state as " + nightActivate);
 
         nightMode.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                //test onclick listener for night mode
+//                System.out.println("Inside Onclick for nightMode state is " + nightActivate);
                 //if nightActivate = 0; then turn on night mode
                 if (nightActivate == 0) {
                     nightActivate = 1;
-                    mainBack.setBackgroundColor(000000);
-                    System.out.println("night mode activated");
+//                    System.out.println("night mode activated");
                 }
                 //if nightActivate = 1; then turn off night mode
                 else {
                     nightActivate = 0;
-                    mainBack.setBackgroundColor(0xEBFF9D0E);
-                    System.out.println("night mode deactivated");
+//                    System.out.println("night mode deactivated");
                 }
             }
         });
 
+        //have colour pick outside
+        if (nightActivate == 0) {
+            mainBack.setBackgroundColor(0xEBFF9D0E);
+
+        } else {
+            mainBack.setBackgroundColor(0x000000);
+
+        }
+
+
     }
 
+
 }
+
 
 //app made by Raymond z5161354
 //other Resources Used

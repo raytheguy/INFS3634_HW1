@@ -242,6 +242,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //this method's purpose is to have an onClick listener to see if night mode is activated
     public void nightModeActivation() {
 
         nightMode.setOnClickListener(new View.OnClickListener() {

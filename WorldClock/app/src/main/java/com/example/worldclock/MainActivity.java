@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     public ConstraintLayout box7;
     public DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
     public SimpleDateFormat sdfSyd = new SimpleDateFormat("hh:mm a");
+
+    //declare int values that  can be changed
     public int testing;
     public int nightActivate = 0;
     //Button or Switch for time type (i.e. 12hr or 24hr)

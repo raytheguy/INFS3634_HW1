@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     //Button or Switch for time type (i.e. 12hr or 24hr)
     Button timeTypeButton;
     Switch timeSwitch;
+
+    //Image Button
+    ImageButton nightMode;
 
     //textViews for City names
     TextView city1Name;
@@ -140,6 +144,10 @@ public class MainActivity extends AppCompatActivity {
         cityImage7 = box7.findViewById(R.id.image);
         cityImage7.setImageResource(R.drawable.sanfrancisco);
 
+        //ImageButton Linkage
+        nightMode = findViewById(R.id.nightButton);
+        //nightmode invokation of activation method
+
         timeZones();
 
     }
@@ -220,6 +228,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }, 5);
+
+
+    }
+
+    public void nightModeActivation(){
 
 
     }

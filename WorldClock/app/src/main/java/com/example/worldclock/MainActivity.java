@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -36,13 +37,23 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Declare ConstraintLayout
+    public ConstraintLayout box1;
+    public ConstraintLayout box2;
+    public ConstraintLayout box3;
+    public ConstraintLayout box4;
+    public ConstraintLayout box5;
+    public ConstraintLayout box6;
+    public ConstraintLayout box7;
+    public DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+    public SimpleDateFormat sdfSyd = new SimpleDateFormat("hh:mm a");
+    public int testing;
+    public int nightActivate = 0;
     //Button or Switch for time type (i.e. 12hr or 24hr)
     Button timeTypeButton;
     Switch timeSwitch;
-
     //Image Button
     ImageButton nightMode;
-
     //textViews for City names
     TextView city1Name;
     TextView city2Name;
@@ -51,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
     TextView city5Name;
     TextView city6Name;
     TextView city7Name;
-
     //textViews for times
     TextView timeZone1;
     TextView timeZone2;
@@ -60,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
     TextView timeZone5;
     TextView timeZone6;
     TextView timeZone7;
-
     //imageViews for Cities
     ImageView cityImage1;
     ImageView cityImage2;
@@ -70,18 +79,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView cityImage6;
     ImageView cityImage7;
 
-    //Declare ConstraintLayout
-    public ConstraintLayout box1;
-    public ConstraintLayout box2;
-    public ConstraintLayout box3;
-    public ConstraintLayout box4;
-    public ConstraintLayout box5;
-    public ConstraintLayout box6;
-    public ConstraintLayout box7;
-
-    public DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
-    public SimpleDateFormat sdfSyd = new SimpleDateFormat("hh:mm a");
-    public int testing;
+    //mainBackground
+    ConstraintLayout mainBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,8 +145,12 @@ public class MainActivity extends AppCompatActivity {
 
         //ImageButton Linkage
         nightMode = findViewById(R.id.nightButton);
-        //nightmode invokation of activation method
+        //nightmode invocation of activation method
 
+        //main background
+        mainBack = findViewById(R.id.mainBackGround);
+
+        //invoke timeZones method
         timeZones();
 
     }
@@ -155,6 +158,10 @@ public class MainActivity extends AppCompatActivity {
     public void timeZones() {
         final Switch timeSwitch = findViewById(R.id.switch2);
         final Handler timeHandler = new Handler(getMainLooper());
+        //final night button
+        nightMode = findViewById(R.id.nightButton);
+//        nightMode.setImageResource(R.drawable.diffmoon);
+        System.out.println("Finished");
 
         //runnable to have the time keep refreshing
         timeHandler.postDelayed(new Runnable() {
@@ -180,6 +187,8 @@ public class MainActivity extends AppCompatActivity {
                     formatter = DateTimeFormatter.ofPattern("EEE hh:mm a");
                     sdfSyd = new SimpleDateFormat("EEE hh:mm a");
                 }
+
+                nightModeActivation();
 
                 //phone time
                 final long curTime = System.currentTimeMillis();
@@ -229,11 +238,26 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 5);
 
-
     }
 
-    public void nightModeActivation(){
+    public void nightModeActivation() {
 
+        nightMode.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //if nightActivate = 0; then turn on night mode
+                if (nightActivate == 0) {
+                    nightActivate = 1;
+                    mainBack.setBackgroundColor(000000);
+                    System.out.println("night mode activated");
+                }
+                //if nightActivate = 1; then turn off night mode
+                else {
+                    nightActivate = 0;
+                    mainBack.setBackgroundColor(0xEBFF9D0E);
+                    System.out.println("night mode deactivated");
+                }
+            }
+        });
 
     }
 

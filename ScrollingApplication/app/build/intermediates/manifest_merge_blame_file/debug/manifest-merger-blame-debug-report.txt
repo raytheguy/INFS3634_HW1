@@ -19,36 +19,37 @@
 14        android:debuggable="true"
 15        android:icon="@drawable/newslogo"
 15-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:7:9-42
-16        android:label="News Application"
-16-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:8:9-41
+16        android:label="Fake News"
+16-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:8:9-34
 17        android:roundIcon="@mipmap/ic_launcher_round"
 17-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
 18-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:10:9-35
-19        android:theme="@style/AppTheme" >
-19-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:11:9-40
-20        <activity
-20-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:12:9-15:68
-21            android:name="com.example.scrollingapplication.DetailActivity"
-21-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:13:13-43
-22            android:label="@string/title_activity_detail"
-22-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:14:13-58
-23            android:theme="@style/AppTheme.NoActionBar" />
-23-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:15:13-56
-24        <activity android:name="com.example.scrollingapplication.MainActivity" >
-24-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:16:9-22:20
-24-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:16:19-47
-25            <intent-filter>
-25-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:17:13-21:29
-26                <action android:name="android.intent.action.MAIN" />
-26-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:18:17-69
-26-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:18:25-66
-27
-28                <category android:name="android.intent.category.LAUNCHER" />
-28-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:20:17-77
-28-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:20:27-74
-29            </intent-filter>
-30        </activity>
-31    </application>
-32
-33</manifest>
+19        android:testOnly="true"
+20        android:theme="@style/AppTheme" >
+20-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:11:9-40
+21        <activity
+21-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:12:9-15:68
+22            android:name="com.example.scrollingapplication.DetailActivity"
+22-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:13:13-43
+23            android:label="@string/title_activity_detail"
+23-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:14:13-58
+24            android:theme="@style/AppTheme.NoActionBar" />
+24-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:15:13-56
+25        <activity android:name="com.example.scrollingapplication.MainActivity" >
+25-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:16:9-22:20
+25-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:16:19-47
+26            <intent-filter>
+26-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:17:13-21:29
+27                <action android:name="android.intent.action.MAIN" />
+27-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:18:17-69
+27-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:18:25-66
+28
+29                <category android:name="android.intent.category.LAUNCHER" />
+29-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:20:17-77
+29-->C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:20:27-74
+30            </intent-filter>
+31        </activity>
+32    </application>
+33
+34</manifest>

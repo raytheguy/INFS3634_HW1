@@ -1,4 +1,4 @@
-package com.example.nytweek2; // <============= CHANGE ME
+package com.example.scrollingapplication; // <============= CHANGE ME
 
 /***
  * Model class for news articles. This should be 100% familiar to you.

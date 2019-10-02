@@ -3,4 +3,6 @@
     <string name="savebutton" />
     <string name="saveArticle">Save Article</string>
     <string name="title_activity_detail">DetailActivity</string>
+    <string name="expand">Expand</string>
+    <string name="textview">TextView</string>
 </resources>

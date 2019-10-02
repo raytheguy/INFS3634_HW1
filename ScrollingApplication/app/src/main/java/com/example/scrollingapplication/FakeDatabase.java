@@ -1,4 +1,6 @@
-package com.example.nytweek2; // <============= CHANGE ME
+package com.example.scrollingapplication; // <============= CHANGE ME
+
+import com.example.scrollingapplication.Article;
 
 import java.util.ArrayList;
 import java.util.Arrays;

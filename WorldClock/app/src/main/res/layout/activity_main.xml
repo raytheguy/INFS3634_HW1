@@ -8,8 +8,6 @@
     android:background="#EBFF9D0E"
     tools:context=".MainActivity">
 
-    //info https://developer.android.com/training/improving-layouts/reusing-layouts
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -59,13 +57,13 @@
 
                 <ImageButton
                     android:id="@+id/nightButton"
-                    android:background="@drawable/diffmoon"
                     android:layout_width="50dip"
                     android:layout_height="50dip"
                     android:layout_marginStart="87dp"
                     android:layout_marginTop="103dp"
                     android:layout_marginEnd="23dp"
                     android:layout_marginBottom="16dp"
+                    android:background="@drawable/diffmoon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/switch2"

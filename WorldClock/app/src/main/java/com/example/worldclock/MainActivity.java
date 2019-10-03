@@ -5,7 +5,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -14,20 +13,11 @@ import android.widget.ImageView;
 import android.widget.Switch;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-import java.util.SimpleTimeZone;
-import java.util.Calendar;
-import java.util.TimeZone;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 
 
 //resolve error
@@ -46,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public ConstraintLayout box5;
     public ConstraintLayout box6;
     public ConstraintLayout box7;
+    public ConstraintLayout ctbox;
     public DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
     public SimpleDateFormat sdfSyd = new SimpleDateFormat("hh:mm a");
 
@@ -86,10 +77,18 @@ public class MainActivity extends AppCompatActivity {
     //mainBackground
     ConstraintLayout mainBack;
 
+    //Text Labels
+    TextView cityPlace;
+    TextView clockPlace;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        ctbox = findViewById(R.id.ctboxer);
+//        cityPlace = ctbox.findViewById(R.id.city);
+//        clockPlace = ctbox.findViewById(R.id.clock);
 
         //city 1 linkage
         box1 = findViewById(R.id.box1);
@@ -155,7 +154,6 @@ public class MainActivity extends AppCompatActivity {
         mainBack = findViewById(R.id.mainBackGround);
 
         //set night activation to no when onCreate
-        //warning does not work
         nightActivate = 0;
 
         //invoke timeZones method
@@ -176,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        testing = savedInstanceState.getInt("NightModelKey");
+        testing = savedInstanceState.getInt("NightModeKey");
         nightActivate = savedInstanceState.getInt("24hrKey");
         System.out.println("Save successful if the number is correct for night mode " + nightActivate);
         System.out.println("Save successful if the number is correct time zone preference " + testing);
@@ -187,8 +185,6 @@ public class MainActivity extends AppCompatActivity {
         final Handler timeHandler = new Handler(getMainLooper());
         //final night button
         nightMode = findViewById(R.id.nightButton);
-//        nightMode.setImageResource(R.drawable.diffmoon);
-        System.out.println("Finished");
 
         //runnable to have the time keep refreshing
         timeHandler.postDelayed(new Runnable() {
@@ -209,11 +205,11 @@ public class MainActivity extends AppCompatActivity {
 
                 //if testing (which is the time format toggle) is on then display 24/hr time
                 if (testing == 1) {
-                    System.out.println("Testing = 1 invoked");
+//                    System.out.println("Testing = 1 invoked");
                     formatter = DateTimeFormatter.ofPattern("EEE HH:mm");
                     sdfSyd = new SimpleDateFormat("EEE HH:mm");
                 } else if (testing == 0){
-                    System.out.println("Testing = 0 invoked");
+//                    System.out.println("Testing = 0 invoked");
                     formatter = DateTimeFormatter.ofPattern("EEE hh:mm a");
                     sdfSyd = new SimpleDateFormat("EEE hh:mm a");
                 }
@@ -295,11 +291,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //have colour pick outside
+        //if night mode is not activated, set background to orange
         if (nightActivate == 0) {
             mainBack.setBackgroundColor(0xEBFF9D0E);
+//            cityPlace.setTextColor(0xFF030000);
+//            clockPlace.setTextColor(0xFF030000);
 
-        } else {
-            mainBack.setBackgroundColor(0x000000);
+        }
+        //if night mode is activated, set background to dark grey
+        else {
+            mainBack.setBackgroundColor(0xEB2C2B2B);
+            //issue: only sydney seems to change text colour in night mode
+//            cityPlace.setTextColor(0xFFF4E8ED);
+//            clockPlace.setTextColor(0xFFF4E8ED);
 
         }
 

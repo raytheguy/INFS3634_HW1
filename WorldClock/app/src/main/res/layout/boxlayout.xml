@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ctboxer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:showIn="@layout/activity_main">
@@ -14,6 +15,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="345dp"
         android:text="@string/city"
+        android:textColor="#030000"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/clock"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,6 +32,7 @@
         android:layout_marginEnd="334dp"
         android:layout_marginBottom="27dp"
         android:text="@string/default_time"
+        android:textColor="#FF030000"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

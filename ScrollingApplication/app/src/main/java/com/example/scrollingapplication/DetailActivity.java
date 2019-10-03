@@ -1,6 +1,7 @@
 package com.example.scrollingapplication;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -12,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.widget.Button;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class DetailActivity extends AppCompatActivity {
     public TextView articleText;
     public TextView headLineText;
     public TextView authorText;
+    public ImageView mainImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,9 @@ public class DetailActivity extends AppCompatActivity {
         Intent intentBtn1 = getIntent();
 //        //get back the string -> note there is no default string
         int backString = intentBtn1.getIntExtra("ArticleToPass", 1);
+        //get back the string of image
+        int backImage = intentBtn1.getIntExtra("ImageToPass", 0);
+
 
         articleText = findViewById(R.id.mainLine);
         articleText.setText(FakeDatabase.getArticleById(backString).getContent());
@@ -42,15 +48,10 @@ public class DetailActivity extends AppCompatActivity {
         authorText = findViewById(R.id.authorText);
         authorText.setText(FakeDatabase.getArticleById(backString).getAuthor());
 
-        //retrieve the string and place it into the textView
-//        Intent intentBtn1 = getIntent();
-//        //get back the string -> note there is no default string
-//        String backString = intentBtn1.getStringExtra("StringToPass");
-//        //find the textView
-//        TextView topText = findViewById(R.id.topText);
-//        topText.setText(backString);
+        mainImage = findViewById(R.id.detailedImage);
+        mainImage.setImageResource(backImage);
 
-
+        //floating button
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +59,7 @@ public class DetailActivity extends AppCompatActivity {
                 Snackbar.make(view, "Intent initiated", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-//intent for the button send thing
+                //intent for the button send thing
                 Intent textIntent = new Intent(Intent.ACTION_SEND);
                 textIntent.setType("text/plain");
                 startActivity(textIntent);

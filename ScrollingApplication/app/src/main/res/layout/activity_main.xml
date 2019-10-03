@@ -15,24 +15,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/top"
-                android:layout_width="match_parent"
-                android:layout_height="70dp">
-
-                <Button
-                    android:id="@+id/expandBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="161dp"
-                    android:layout_marginEnd="162dp"
-                    android:layout_marginBottom="11dp"
-                    android:text="More Articles"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
             <include
                 android:id="@+id/article1"
                 layout="@layout/news_layout"/>
@@ -43,6 +25,18 @@
 
             <include
                 android:id="@+id/article3"
+                layout="@layout/news_layout"/>
+
+            <include
+                android:id="@+id/article4"
+                layout="@layout/news_layout"/>
+
+            <include
+                android:id="@+id/article5"
+                layout="@layout/news_layout"/>
+
+            <include
+                android:id="@+id/article6"
                 layout="@layout/news_layout"/>
 
         </LinearLayout>

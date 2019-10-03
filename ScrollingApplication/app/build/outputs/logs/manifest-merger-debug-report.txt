@@ -81,7 +81,7 @@ ADDED from C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\a
 	android:parentActivityName
 		ADDED from C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:16:13-55
 	android:label
-		ADDED from C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:14:13-58
+		ADDED from C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:14:13-45
 	android:theme
 		ADDED from C:\Users\Raymond\Documents\GitHub\INFS3634_HW1\ScrollingApplication\app\src\main\AndroidManifest.xml:15:13-56
 	android:name

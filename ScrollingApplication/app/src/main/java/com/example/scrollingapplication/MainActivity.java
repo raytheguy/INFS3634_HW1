@@ -44,45 +44,61 @@ public class MainActivity extends AppCompatActivity {
     public Button shareBtn3;
     public int passArticle3;
 
+    //Article 4
+    public ConstraintLayout article4;
+    public TextView newsHeadline4;
+    public ImageView newsImage4;
+    public Button expandBtn4;
+    public Button shareBtn4;
+    public int passArticle4;
+
+    //Article 5
+    public ConstraintLayout article5;
+    public TextView newsHeadline5;
+    public ImageView newsImage5;
+    public Button expandBtn5;
+    public Button shareBtn5;
+    public int passArticle5;
+
+    //Article 6
+    public ConstraintLayout article6;
+    public TextView newsHeadline6;
+    public ImageView newsImage6;
+    public Button expandBtn6;
+    public Button shareBtn6;
+    public int passArticle6;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //get article 1
-        passArticle1 = FakeDatabase.getArticleById(1).getArticleID();
-
         //button to go to another activity
         top = findViewById(R.id.top);
-        expandBtn = top.findViewById(R.id.expandBtn);
-        expandBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //execute the explicit + pass data in
-                Intent intentBtn1 = new Intent(getApplicationContext(), DetailActivity.class);
-                //pass over a string to the other activity
-                intentBtn1.putExtra("ArticleToPass1", passArticle1);
-                startActivity(intentBtn1);
-
-            }
-        });
 
         //article 1
         article1 = findViewById(R.id.article1);
         newsHeadline1 = article1.findViewById(R.id.textView);
-        newsHeadline1.setText("iPhones, Diamonds, Warlords and Mercenaries: Russia’s New Playbook in Africa");
+        newsHeadline1.setText(FakeDatabase.getArticleById(1).getHeadline());
         newsImage1 = article1.findViewById(R.id.imageView);
-        newsImage1.setImageResource(R.drawable.iphone);
-        expandBtn1 = article1.findViewById(R.id.expandBtn);
+        newsImage1.setImageResource(R.drawable.centralafrica);
+        String article1Image = "centralafrica";
+        final int article1ImgID = getResources().getIdentifier(article1Image, "drawable", getPackageName());
+//        expandBtn1 = article1.findViewById(R.id.expandBtn);
         shareBtn1 = article1.findViewById(R.id.shareBtn);
 
-        //when article 1 expand button is clicked
-        expandBtn1.setOnClickListener(new View.OnClickListener() {
+        //get article 1
+        passArticle1 = FakeDatabase.getArticleById(1).getArticleID();
+
+        //when article 1 constraint layout button is clicked
+        article1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //execute the explicit + pass data in
-                Intent intentBtn1a = new Intent(getApplicationContext(), DetailActivity.class);
+                Intent intentBtn1 = new Intent(getApplicationContext(), DetailActivity.class);
                 //pass over a string to the other activity
-                intentBtn1a.putExtra("ArticleToPass1", passArticle1);
-                startActivity(intentBtn1a);
+                intentBtn1.putExtra("ArticleToPass", passArticle1);
+                intentBtn1.putExtra("ImageToPass", article1ImgID);
+                startActivity(intentBtn1);
 
             }
         });
@@ -94,22 +110,11 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Intent initiated", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-//intent for the button send thing
+                //intent for the button send thing
                 Intent textIntent = new Intent(Intent.ACTION_SEND);
                 textIntent.setType("text/plain");
+                textIntent.putExtra(Intent.EXTRA_TEXT, FakeDatabase.getArticleById(1).getHeadline() + getResources().getString(R.string.NYTimes));
                 startActivity(textIntent);
-
-            }
-        });
-
-        //when article 1 constraint layout button is clicked
-        article1.setOnClickListener(new View.OnClickListener() {
-            public void onClick (View v) {
-                //execute the explicit + pass data in
-                Intent intentBtn1 = new Intent(getApplicationContext(), DetailActivity.class);
-                //pass over a string to the other activity
-                intentBtn1.putExtra("ArticleToPass", passArticle2);
-                startActivity(intentBtn1);
 
             }
         });
@@ -117,26 +122,16 @@ public class MainActivity extends AppCompatActivity {
         //article 2
         article2 = findViewById(R.id.article2);
         newsHeadline2 = article2.findViewById(R.id.textView);
-        newsHeadline2.setText("Biden’s Digital Ads Are Disappearing. ‘Not a Good Sign,’ Strategists Say.");
+        newsHeadline2.setText(FakeDatabase.getArticleById(2).getHeadline());
         newsImage2 = article2.findViewById(R.id.imageView);
-        newsImage2.setImageResource(R.drawable.drought);
-        expandBtn2 = article2.findViewById(R.id.expandBtn);
+        newsImage2.setImageResource(R.drawable.bidens);
+        String article2Image = "bidens";
+        final int article2ImgID = getResources().getIdentifier(article2Image, "drawable", getPackageName());
+//        expandBtn2 = article2.findViewById(R.id.expandBtn);
         shareBtn2 = article2.findViewById(R.id.shareBtn);
 
         //get article 2
         passArticle2 = FakeDatabase.getArticleById(2).getArticleID();
-
-        //when article 2 expand button is clicked
-        expandBtn2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //execute the explicit + pass data in
-                Intent intentBtn2 = new Intent(getApplicationContext(), DetailActivity.class);
-                //pass over a string to the other activity
-                intentBtn2.putExtra("ArticleToPass", passArticle2);
-                startActivity(intentBtn2);
-
-            }
-        });
 
         //when article 2 share button is clicked
         shareBtn2.setOnClickListener(new View.OnClickListener() {
@@ -148,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
 //intent for the button send thing
                 Intent textIntent2 = new Intent(Intent.ACTION_SEND);
                 textIntent2.setType("text/plain");
+                textIntent2.putExtra(Intent.EXTRA_TEXT, FakeDatabase.getArticleById(2).getHeadline() + getResources().getString(R.string.NYTimes));
                 startActivity(textIntent2);
 
             }
@@ -155,11 +151,12 @@ public class MainActivity extends AppCompatActivity {
 
         //when article 2 constraint layout button is clicked
         article2.setOnClickListener(new View.OnClickListener() {
-            public void onClick (View v) {
+            public void onClick(View v) {
                 //execute the explicit + pass data in
                 Intent intentBtn2 = new Intent(getApplicationContext(), DetailActivity.class);
                 //pass over a string to the other activity
                 intentBtn2.putExtra("ArticleToPass", passArticle2);
+                intentBtn2.putExtra("ImageToPass", article2ImgID);
                 startActivity(intentBtn2);
 
             }
@@ -168,26 +165,16 @@ public class MainActivity extends AppCompatActivity {
         //article 3
         article3 = findViewById(R.id.article3);
         newsHeadline3 = article3.findViewById(R.id.textView);
-        newsHeadline3.setText("France Marks a Day of Mourning for Jacques Chirac");
+        newsHeadline3.setText(FakeDatabase.getArticleById(3).getHeadline());
         newsImage3 = article3.findViewById(R.id.imageView);
-        newsImage3.setImageResource(R.drawable.bed);
-        expandBtn3 = article3.findViewById(R.id.expandBtn);
+        newsImage3.setImageResource(R.drawable.francemourn);
+        String article3Image = "francemourn";
+        final int article3ImgID = getResources().getIdentifier(article3Image, "drawable", getPackageName());
+//        expandBtn3 = article3.findViewById(R.id.expandBtn);
         shareBtn3 = article3.findViewById(R.id.shareBtn);
 
         //get article 3
         passArticle3 = FakeDatabase.getArticleById(3).getArticleID();
-
-        //when article 3 expand button is clicked
-        expandBtn3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //execute the explicit + pass data in
-                Intent intentBtn3 = new Intent(getApplicationContext(), DetailActivity.class);
-                //pass over a string to the other activity
-                intentBtn3.putExtra("ArticleToPass", passArticle3);
-                startActivity(intentBtn3);
-
-            }
-        });
 
         //when article 3 share button is clicked
         shareBtn3.setOnClickListener(new View.OnClickListener() {
@@ -196,22 +183,153 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Intent initiated", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-//intent for the button send thing
+                //intent for the button send thing
                 Intent textIntent3 = new Intent(Intent.ACTION_SEND);
                 textIntent3.setType("text/plain");
+                textIntent3.putExtra(Intent.EXTRA_TEXT, FakeDatabase.getArticleById(3).getHeadline() + getResources().getString(R.string.NYTimes));
                 startActivity(textIntent3);
 
             }
         });
 
-        //when article 1 constraint layout button is clicked
+        //when article 3 constraint layout button is clicked
         article3.setOnClickListener(new View.OnClickListener() {
-            public void onClick (View v) {
+            public void onClick(View v) {
                 //execute the explicit + pass data in
                 Intent intentBtn3 = new Intent(getApplicationContext(), DetailActivity.class);
                 //pass over a string to the other activity
                 intentBtn3.putExtra("ArticleToPass", passArticle3);
+                intentBtn3.putExtra("ImageToPass", article3ImgID);
                 startActivity(intentBtn3);
+
+            }
+        });
+
+        //article 4
+        article4 = findViewById(R.id.article4);
+        newsHeadline4 = article4.findViewById(R.id.textView);
+        newsHeadline4.setText(FakeDatabase.getArticleById(4).getHeadline());
+        newsImage4 = article4.findViewById(R.id.imageView);
+        newsImage4.setImageResource(R.drawable.inmates);
+        String article4Image = "inmates";
+        final int article4ImgID = getResources().getIdentifier(article4Image, "drawable", getPackageName());
+//        expandBtn4 = article4.findViewById(R.id.expandBtn);
+        shareBtn4 = article4.findViewById(R.id.shareBtn);
+
+        //get article 4
+        passArticle4 = FakeDatabase.getArticleById(4).getArticleID();
+
+        //when article 4 share button is clicked
+        shareBtn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Intent initiated", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+
+                //intent for the button send thing
+                Intent textIntent4 = new Intent(Intent.ACTION_SEND);
+                textIntent4.setType("text/plain");
+                textIntent4.putExtra(Intent.EXTRA_TEXT, FakeDatabase.getArticleById(4).getHeadline() + getResources().getString(R.string.NYTimes));
+                startActivity(textIntent4);
+
+            }
+        });
+
+        //when article 4 constraint layout button is clicked
+        article4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //execute the explicit + pass data in
+                Intent intentBtn4 = new Intent(getApplicationContext(), DetailActivity.class);
+                //pass over a string to the other activity
+                intentBtn4.putExtra("ArticleToPass", passArticle4);
+                intentBtn4.putExtra("ImageToPass", article4ImgID);
+                startActivity(intentBtn4);
+
+            }
+        });
+
+        //article 5
+        article5 = findViewById(R.id.article5);
+        newsHeadline5 = article5.findViewById(R.id.textView);
+        newsHeadline5.setText(FakeDatabase.getArticleById(5).getHeadline());
+        newsImage5 = article5.findViewById(R.id.imageView);
+        newsImage5.setImageResource(R.drawable.northpole);
+        String article5Image = "northpole";
+        final int article5ImgID = getResources().getIdentifier(article5Image, "drawable", getPackageName());
+//        expandBtn5 = article5.findViewById(R.id.expandBtn);
+        shareBtn5 = article5.findViewById(R.id.shareBtn);
+
+        //get article 5
+        passArticle5 = FakeDatabase.getArticleById(5).getArticleID();
+
+        //when article 5 share button is clicked
+        shareBtn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Intent initiated", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+
+                //intent for the button send thing
+                Intent textIntent5 = new Intent(Intent.ACTION_SEND);
+                textIntent5.setType("text/plain");
+                textIntent5.putExtra(Intent.EXTRA_TEXT, FakeDatabase.getArticleById(5).getHeadline() + getResources().getString(R.string.NYTimes));
+                startActivity(textIntent5);
+
+            }
+        });
+
+        //when article 5 constraint layout button is clicked
+        article5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //execute the explicit + pass data in
+                Intent intentBtn5 = new Intent(getApplicationContext(), DetailActivity.class);
+                //pass over a string to the other activity
+                intentBtn5.putExtra("ArticleToPass", passArticle5);
+                intentBtn5.putExtra("ImageToPass", article5ImgID);
+                startActivity(intentBtn5);
+
+            }
+        });
+
+        //article 6
+        article6 = findViewById(R.id.article6);
+        newsHeadline6 = article6.findViewById(R.id.textView);
+        newsHeadline6.setText(FakeDatabase.getArticleById(6).getHeadline());
+        newsImage6 = article6.findViewById(R.id.imageView);
+        newsImage6.setImageResource(R.drawable.posthappy);
+        String article6Image = "posthappy";
+        final int article6ImgID = getResources().getIdentifier(article6Image, "drawable", getPackageName());
+//        expandBtn5 = article6.findViewById(R.id.expandBtn);
+        shareBtn6 = article6.findViewById(R.id.shareBtn);
+
+        //get article 6
+        passArticle6 = FakeDatabase.getArticleById(6).getArticleID();
+
+        //when article 6 share button is clicked
+        shareBtn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Intent initiated", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+
+                //intent for the button send thing
+                Intent textIntent6 = new Intent(Intent.ACTION_SEND);
+                textIntent6.setType("text/plain");
+                textIntent6.putExtra(Intent.EXTRA_TEXT, FakeDatabase.getArticleById(6).getHeadline() + getResources().getString(R.string.NYTimes));
+                startActivity(textIntent6);
+
+            }
+        });
+
+        //when article 6 constraint layout button is clicked
+        article6.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //execute the explicit + pass data in
+                Intent intentBtn6 = new Intent(getApplicationContext(), DetailActivity.class);
+                //pass over a string to the other activity
+                intentBtn6.putExtra("ArticleToPass", passArticle6);
+                intentBtn6.putExtra("ImageToPass", article6ImgID);
+                startActivity(intentBtn6);
 
             }
         });

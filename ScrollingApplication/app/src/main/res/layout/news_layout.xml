@@ -23,27 +23,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="175dp"
         android:layout_marginTop="47dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginBottom="199dp"
+        android:layout_marginEnd="175dp"
+        android:onClick="perform_action"
         android:text="@string/textview"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox2"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:onClick="perform_action"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="152dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="129dp"
+        android:layout_marginEnd="151dp"
         android:text="@string/saveArticle"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/shareBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <View
         android:id="@+id/view"
@@ -55,23 +53,15 @@
         tools:layout_editor_absoluteX="-3dp" />
 
     <Button
-        android:id="@+id/expandBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="15dp"
-        android:text="@string/expand"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
         android:id="@+id/shareBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="8dp"
         android:text="Share"
         app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 

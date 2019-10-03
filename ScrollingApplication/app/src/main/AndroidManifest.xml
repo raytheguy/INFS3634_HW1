@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".DetailActivity"
-            android:label="@string/title_activity_detail"
+            android:label="Expanded Article"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".MainActivity">

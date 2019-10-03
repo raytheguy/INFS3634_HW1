@@ -996,6 +996,8 @@ drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
 drawable bed
+drawable bidens
+drawable centralafrica
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1003,16 +1005,19 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable drought
+drawable francemourn
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable inmates
 drawable iphone
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
 drawable newslogo
+drawable northpole
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1025,6 +1030,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable posthappy
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -1059,6 +1065,9 @@ id always
 id article1
 id article2
 id article3
+id article4
+id article5
+id article6
 id async
 id authorText
 id auto
@@ -1090,6 +1099,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detailedImage
 id dimensions
 id direct
 id disableHome
@@ -1098,7 +1108,6 @@ id end
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
-id expandBtn
 id expand_activities_button
 id expanded_menu
 id fab
@@ -1120,7 +1129,6 @@ id icon_group
 id ifRoom
 id image
 id imageView
-id imageView3
 id info
 id invisible
 id italic
@@ -1320,6 +1328,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round
+string NYTimes
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

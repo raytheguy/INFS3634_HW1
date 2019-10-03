@@ -29,14 +29,16 @@
         app:layout_constraintBottom_toTopOf="@+id/checkBox2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:onClick="perform_action"
+        />
 
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="152dp"
-        android:layout_marginTop="172dp"
+        android:layout_marginTop="84dp"
         android:layout_marginEnd="152dp"
         android:text="@string/saveArticle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +53,26 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintTop_toBottomOf="@+id/checkBox2"
         tools:layout_editor_absoluteX="-3dp" />
+
+    <Button
+        android:id="@+id/expandBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/expand"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/shareBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginBottom="15dp"
+        android:text="Share"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

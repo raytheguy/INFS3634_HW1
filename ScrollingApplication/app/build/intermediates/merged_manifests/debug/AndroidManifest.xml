@@ -21,6 +21,7 @@
         <activity
             android:name="com.example.scrollingapplication.DetailActivity"
             android:label="@string/title_activity_detail"
+            android:parentActivityName="com.example.scrollingapplication.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.example.scrollingapplication.MainActivity" >
             <intent-filter>

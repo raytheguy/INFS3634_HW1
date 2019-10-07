@@ -70,6 +70,17 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:srcCompat="@tools:sample/avatars" />
 
+                <ImageButton
+                    android:id="@+id/settingsButton"
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="102dp"
+                    android:background="@drawable/diffmoon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <include

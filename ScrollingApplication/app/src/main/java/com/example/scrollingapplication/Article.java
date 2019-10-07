@@ -1,5 +1,7 @@
 package com.example.scrollingapplication; // <============= CHANGE ME
 
+import java.util.ArrayList;
+
 /***
  * Model class for news articles. This should be 100% familiar to you.
  */
@@ -18,7 +20,6 @@ public class Article {
     private String content;
     // Resource ID of associated image (e.g. R.drawable.my_image)
     private int imageDrawableId;
-
 
     public Article(int articleID, String headline, String author, String summary, String content) {
         this.articleID = articleID;

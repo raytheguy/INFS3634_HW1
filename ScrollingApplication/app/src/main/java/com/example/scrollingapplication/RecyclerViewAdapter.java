@@ -46,6 +46,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return holder;
     }
 
+
+
     //changes based on layout
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {

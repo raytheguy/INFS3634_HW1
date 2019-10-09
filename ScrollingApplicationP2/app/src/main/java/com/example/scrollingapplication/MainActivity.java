@@ -54,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
         articleIds.add(FakeDatabase.getArticleById(4).getArticleID());
         articleIds.add(FakeDatabase.getArticleById(5).getArticleID());
         articleIds.add(FakeDatabase.getArticleById(6).getArticleID());
-
-        System.out.println("The fake article outputs " + FakeDatabase.getAllArticles());
     }
 
     //method is to obtain the imageIds and place them into an arrayList

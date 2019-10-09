@@ -23,7 +23,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     //for debugging
     private static final String TAG = "RecyclerViewAdapter";
     //ArrayList of Strings to Hold Imageids
-    public ConstraintLayout layoutMain;
     public ArrayList<Integer> imageIds = new ArrayList<>();
     public ArrayList<Integer> articleIds = new ArrayList<>();
     public Context mContext;

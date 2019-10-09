@@ -5,36 +5,21 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.view.View;
+//removed some imports as they are now handled by the recycler
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-//recycle view: https://www.youtube.com/watch?v=Vyqz_-sJGFk
-
 public class MainActivity extends AppCompatActivity {
     public ConstraintLayout top;
-    //button
-    public Button expandBtn;
 
     //spinner
     public Spinner topSpin;
 
     //others from Adapter
     public ArrayList<Integer> imageIds = new ArrayList<>();
-    public ArrayList<String> articleSummary = new ArrayList<>();
     public ArrayList<Integer> articleIds = new ArrayList<>();
 
     @Override
@@ -45,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         //button to go to another activity
         top = findViewById(R.id.top);
 
-        //Spinners test
+        //Spinners test: The spinner does not do anything
         topSpin = findViewById(R.id.topSpin);
         //Create an ArrayAdapter using array in string resources
         ArrayAdapter<CharSequence> adapter =
@@ -54,11 +39,8 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //apply adapter to spinner
         topSpin.setAdapter(adapter);
-        //more information
-        //https://developer.android.com/guide/topics/ui/controls/spinner
 
         initArticleIds();
-        initArticleSummary();
         initImageIds();
         initRecyclerViewer();
 
@@ -72,17 +54,8 @@ public class MainActivity extends AppCompatActivity {
         articleIds.add(FakeDatabase.getArticleById(4).getArticleID());
         articleIds.add(FakeDatabase.getArticleById(5).getArticleID());
         articleIds.add(FakeDatabase.getArticleById(6).getArticleID());
-    }
 
-    //method is to obtain the articleSummary and place them into an arrayList
-    public void initArticleSummary() {
-        articleSummary.add(FakeDatabase.getArticleById(1).getHeadline());
-        articleSummary.add(FakeDatabase.getArticleById(2).getHeadline());
-        articleSummary.add(FakeDatabase.getArticleById(3).getHeadline());
-        articleSummary.add(FakeDatabase.getArticleById(4).getHeadline());
-        articleSummary.add(FakeDatabase.getArticleById(5).getHeadline());
-        articleSummary.add(FakeDatabase.getArticleById(6).getHeadline());
-
+        System.out.println("The fake article outputs " + FakeDatabase.getAllArticles());
     }
 
     //method is to obtain the imageIds and place them into an arrayList
@@ -99,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     public void initRecyclerViewer(){
         RecyclerView recyclerView = findViewById(R.id.recyclerv_view);
         //the arrayLists to put inside the RecycleView Adapter
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(imageIds, articleSummary, articleIds, this);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(imageIds, articleIds, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -111,4 +84,6 @@ public class MainActivity extends AppCompatActivity {
     //https://stackoverflow.com/questions/51646852/recyclerview-slow-scrolling-performance-and-lag-halt-sometime-while-scrolling
     //https://stackoverflow.com/questions/28528009/start-new-intent-from-recyclerviewadapter
     //https://stackoverflow.com/questions/42468113/how-can-i-use-getresources-inside-of-onbindviewholder
+    //https://developer.android.com/guide/topics/ui/controls/spinner
+    //recycle view tutorial: https://www.youtube.com/watch?v=Vyqz_-sJGFk
 }

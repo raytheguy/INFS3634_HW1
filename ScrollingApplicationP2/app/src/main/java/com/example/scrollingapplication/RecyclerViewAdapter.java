@@ -26,13 +26,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     //ArrayList of Strings to Hold Imageids
     public ConstraintLayout layoutMain;
     public ArrayList<Integer> imageIds = new ArrayList<>();
-    public ArrayList<String> articleSummary = new ArrayList<>();
     public ArrayList<Integer> articleIds = new ArrayList<>();
     public Context mContext;
 
-    public RecyclerViewAdapter(ArrayList<Integer> imageIds, ArrayList<String> articleSummary, ArrayList<Integer> articleIds, Context mContext) {
+    public RecyclerViewAdapter(ArrayList<Integer> imageIds, ArrayList<Integer> articleIds, Context mContext) {
         this.imageIds = imageIds;
-        this.articleSummary = articleSummary;
         this.articleIds = articleIds;
         this.mContext = mContext;
     }
@@ -46,8 +44,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return holder;
     }
 
-
-
     //changes based on layout
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
@@ -55,7 +51,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         //called when loaded
         Log.d(TAG, "Tester called");
 
-        holder.textView.setText(articleSummary.get(position));
+        //set the headline and image
+        //add 1 to position as article ids start from 1
+        holder.textView.setText(FakeDatabase.getArticleById(position+1).getHeadline());
         holder.imageView.setImageResource(imageIds.get(position));
 
         //Ger resources which is 'by NY Times'
@@ -98,16 +96,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-        //get the amount of Ids that exists
+        //get the amount of article Ids that exists
         return articleIds.size();
     }
 
     //purpose: holds widgets in memory
+    //attach the widgets to its id in the news layout
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         //declare everything the ViewHolder holds here
         //in news_layout, there is imageView
-
         ConstraintLayout layoutMain;
         ImageView imageView;
         TextView textView;
@@ -115,6 +113,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Button shareBtn;
 
         public ViewHolder(@NonNull View v) {
+            //super to inherit the View class
             super(v);
 
             //attach the items to the id
